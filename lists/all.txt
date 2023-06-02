@@ -12,6 +12,7 @@
 BabyRage R
 BibleThump A
 BloodTrail A
+cat B
 Jokerge A
 KonCha A
 LETSGO A
