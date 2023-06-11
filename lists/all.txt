@@ -1,14 +1,14 @@
 # A-ASCII S-Station C-Clasic M-Music L-Leave Q-Secret T-Toxic B-Bite R-others K-Cringe
 💩 A
 1984 R
-21 S
-22 S
-23 S
-24 S
-25 S
-26 S
-30 Q
-32 Q
+s21 S
+s22 S
+s23 S
+s24 S
+s25 S
+s26 S
+old30 Q
+old32 Q
 BabyRage R
 BibleThump A
 BloodTrail A
