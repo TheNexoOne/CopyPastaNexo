@@ -1,0 +1,157 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Пасты</title>
+        <style>
+            h1 {margin-left: 20px;}
+            aside { /* Правая колонка */
+             margin-top: 40px;
+                width: 400px; /* Ширина правой колонки */
+                float: right; /* Обтекание */
+            }
+            
+            article { /* Левая колонка */
+             margin-top: 20px;
+                margin-right: 410px; /* Отступ справа */
+            }
+            
+            .folder-item {
+                padding: 10px;
+                border: 1px solid #ccc;
+                cursor: pointer;
+            }
+            
+            .folder-name {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            
+            .file-item {
+                padding: 5px;
+                cursor: pointer;
+            }
+        
+            #preview {
+                max-width: 400px;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        </style>
+        <script>
+            function showPreview(file) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", file, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.getElementById("preview").innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            }
+            
+            function bindClickEvents() {
+                var folderItems = document.getElementsByClassName("folder-item");
+                for (var i = 0; i < folderItems.length; i++) {
+                    folderItems[i].addEventListener("click", function() {
+                        var fileList = this.getElementsByClassName("file-list")[0];
+                        fileList.style.display = (fileList.style.display === "none") ? "block" : "none";
+                    });
+                }
+                
+                var fileItems = document.getElementsByClassName("file-item");
+                for (var i = 0; i < fileItems.length; i++) {
+                    fileItems[i].addEventListener("click", function(e) {
+                        e.stopPropagation(); // Prevent folder toggle when clicking a file
+                        showPreview(this.getAttribute("data-file"));
+                        navigator.clipboard.writeText("!паста "+this.textContent);
+                        var tmp= this.textContent;
+                        this.textContent="Скопировано в буфер обмена!"
+                        setTimeout(() => {
+                            this.textContent=tmp;
+                          }, 1500);
+                    });
+                }
+            }
+            
+            window.addEventListener("DOMContentLoaded", bindClickEvents);
+        </script>
+    </head>
+    <body>
+        <aside>
+            <div id="preview"></div>
+        </aside>
+        <article>
+        <h1>Список паст, доступных по команде !паста</h1>
+        <ul class="folder-list">
+    
+        <li class="folder-item">
+            <span class="folder-name">ASCII</span>
+            <ul class="file-list" style="display: none;">
+        <li class="file-item" data-file="ASCII/ban.html">ban</li><li class="file-item" data-file="ASCII/BibleThump.html">BibleThump</li><li class="file-item" data-file="ASCII/bidenPog.html">bidenPog</li><li class="file-item" data-file="ASCII/BloodTrail.html">BloodTrail</li><li class="file-item" data-file="ASCII/Jokerge.html">Jokerge</li><li class="file-item" data-file="ASCII/KonCha.html">KonCha</li><li class="file-item" data-file="ASCII/LETSGO.html">LETSGO</li><li class="file-item" data-file="ASCII/MLADY.html">MLADY</li><li class="file-item" data-file="ASCII/NOOOO.html">NOOOO</li><li class="file-item" data-file="ASCII/PunOko.html">PunOko</li><li class="file-item" data-file="ASCII/SMOrc.html">SMOrc</li><li class="file-item" data-file="ASCII/TROLL.html">TROLL</li><li class="file-item" data-file="ASCII/WeirdChamping.html">WeirdChamping</li><li class="file-item" data-file="ASCII/вававивава.html">вававивава</li><li class="file-item" data-file="ASCII/вакан.html">вакан</li><li class="file-item" data-file="ASCII/вульпа.html">вульпа</li><li class="file-item" data-file="ASCII/гусь.html">гусь</li><li class="file-item" data-file="ASCII/гусь2.html">гусь2</li><li class="file-item" data-file="ASCII/кабан.html">кабан</li><li class="file-item" data-file="ASCII/кот.html">кот</li><li class="file-item" data-file="ASCII/олег.html">олег</li><li class="file-item" data-file="ASCII/пицца.html">пицца</li><li class="file-item" data-file="ASCII/привет.html">привет</li><li class="file-item" data-file="ASCII/рыба.html">рыба</li><li class="file-item" data-file="ASCII/сыр.html">сыр</li><li class="file-item" data-file="ASCII/улыбка.html">улыбка</li><li class="file-item" data-file="ASCII/💩.html">💩</li>
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">байты</span>
+            <ul class="file-list" style="display: none;">
+        <li class="file-item" data-file="байты/cat.html">cat</li><li class="file-item" data-file="байты/акция.html">акция</li><li class="file-item" data-file="байты/бигмак.html">бигмак</li><li class="file-item" data-file="байты/говновоз.html">говновоз</li><li class="file-item" data-file="байты/девочка.html">девочка</li><li class="file-item" data-file="байты/девятка.html">девятка</li><li class="file-item" data-file="байты/душ.html">душ</li><li class="file-item" data-file="байты/маша.html">маша</li><li class="file-item" data-file="байты/мужчина.html">мужчина</li><li class="file-item" data-file="байты/незнает.html">незнает</li><li class="file-item" data-file="байты/новенькая.html">новенькая</li><li class="file-item" data-file="байты/новогодняя.html">новогодняя</li><li class="file-item" data-file="байты/ой.html">ой</li><li class="file-item" data-file="байты/парень.html">парень</li><li class="file-item" data-file="байты/песня.html">песня</li><li class="file-item" data-file="байты/рожден.html">рожден</li><li class="file-item" data-file="байты/сабка.html">сабка</li><li class="file-item" data-file="байты/смузи.html">смузи</li><li class="file-item" data-file="байты/терпеть.html">терпеть</li><li class="file-item" data-file="байты/тишина.html">тишина</li><li class="file-item" data-file="байты/увернуласть.html">увернуласть</li><li class="file-item" data-file="байты/шаха.html">шаха</li>
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">кринж</span>
+            <ul class="file-list" style="display: none;">
+        <li class="file-item" data-file="кринж/милый.html">милый</li><li class="file-item" data-file="кринж/мотивация.html">мотивация</li><li class="file-item" data-file="кринж/мотивация1.html">мотивация1</li><li class="file-item" data-file="кринж/мотивация10.html">мотивация10</li><li class="file-item" data-file="кринж/мотивация11.html">мотивация11</li><li class="file-item" data-file="кринж/мотивация12.html">мотивация12</li><li class="file-item" data-file="кринж/мотивация13.html">мотивация13</li><li class="file-item" data-file="кринж/мотивация14.html">мотивация14</li><li class="file-item" data-file="кринж/мотивация15.html">мотивация15</li><li class="file-item" data-file="кринж/мотивация16.html">мотивация16</li><li class="file-item" data-file="кринж/мотивация2.html">мотивация2</li><li class="file-item" data-file="кринж/мотивация3.html">мотивация3</li><li class="file-item" data-file="кринж/мотивация4.html">мотивация4</li><li class="file-item" data-file="кринж/мотивация5.html">мотивация5</li><li class="file-item" data-file="кринж/мотивация6.html">мотивация6</li><li class="file-item" data-file="кринж/мотивация7.html">мотивация7</li><li class="file-item" data-file="кринж/мотивация8.html">мотивация8</li><li class="file-item" data-file="кринж/мотивация9.html">мотивация9</li><li class="file-item" data-file="кринж/ночи.html">ночи</li><li class="file-item" data-file="кринж/утро.html">утро</li>
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">от_шефа</span>
+            <ul class="file-list" style="display: none;">
+        <li class="file-item" data-file="от_шефа/алио.html">алио</li><li class="file-item" data-file="от_шефа/алмазная.html">алмазная</li><li class="file-item" data-file="от_шефа/альфредо.html">альфредо</li><li class="file-item" data-file="от_шефа/болоньезе.html">болоньезе</li><li class="file-item" data-file="от_шефа/водка.html">водка</li><li class="file-item" data-file="от_шефа/вонголе.html">вонголе</li><li class="file-item" data-file="от_шефа/гои.html">гои</li><li class="file-item" data-file="от_шефа/дыши.html">дыши</li><li class="file-item" data-file="от_шефа/зубная.html">зубная</li><li class="file-item" data-file="от_шефа/кампанелле.html">кампанелле</li><li class="file-item" data-file="от_шефа/карбонара.html">карбонара</li><li class="file-item" data-file="от_шефа/контактная.html">контактная</li><li class="file-item" data-file="от_шефа/копи.html">копи</li><li class="file-item" data-file="от_шефа/крипи.html">крипи</li><li class="file-item" data-file="от_шефа/мисо.html">мисо</li><li class="file-item" data-file="от_шефа/молликата.html">молликата</li><li class="file-item" data-file="от_шефа/нерано.html">нерано</li><li class="file-item" data-file="от_шефа/норма.html">норма</li><li class="file-item" data-file="от_шефа/очищающая.html">очищающая</li><li class="file-item" data-file="от_шефа/пепе.html">пепе</li><li class="file-item" data-file="от_шефа/примавера.html">примавера</li><li class="file-item" data-file="от_шефа/путтанеска.html">путтанеска</li><li class="file-item" data-file="от_шефа/сантехническая.html">сантехническая</li><li class="file-item" data-file="от_шефа/термо.html">термо</li><li class="file-item" data-file="от_шефа/томат.html">томат</li><li class="file-item" data-file="от_шефа/шоколадная.html">шоколадная</li><li class="file-item" data-file="от_шефа/ют.html">ют</li>
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">отошел</span>
+            <ul class="file-list" style="display: none;">
+        <li class="file-item" data-file="отошел/господа.html">господа</li><li class="file-item" data-file="отошел/кресло.html">кресло</li><li class="file-item" data-file="отошел/потеха.html">потеха</li><li class="file-item" data-file="отошел/поумнели.html">поумнели</li><li class="file-item" data-file="отошел/стул.html">стул</li><li class="file-item" data-file="отошел/терпеть.html">терпеть</li><li class="file-item" data-file="отошел/уйду.html">уйду</li><li class="file-item" data-file="отошел/утюг.html">утюг</li><li class="file-item" data-file="отошел/ушел.html">ушел</li>
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">песни</span>
+            <ul class="file-list" style="display: none;">
+        
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">прочие</span>
+            <ul class="file-list" style="display: none;">
+        
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">станция</span>
+            <ul class="file-list" style="display: none;">
+        
+            </ul>
+        </li>
+        
+        <li class="folder-item">
+            <span class="folder-name">токсичные</span>
+            <ul class="file-list" style="display: none;">
+        
+            </ul>
+        </li>
+        
+        </ul>
+        </article>
+    </body>
+    </html>
+    
