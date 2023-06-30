@@ -44,16 +44,25 @@ def generate_html_file(folder_structure):
         <meta charset="utf-8">
         <title>Пасты</title>
         <style>
+        
             h1 {margin-left: 20px;}
-            aside { /* Правая колонка */
-             margin-top: 40px;
-                width: 400px; /* Ширина правой колонки */
-                float: right; /* Обтекание */
-            }
             
-            article { /* Левая колонка */
-             margin-top: 20px;
-                margin-right: 410px; /* Отступ справа */
+            aside {
+                /* Правая колонка */
+                position: fixed;
+                top: 60px;
+                right: 15px;
+                width: 400px;
+                /* Ширина правой колонки */
+                float: right;
+                /* Обтекание */
+            }
+
+            article {
+                /* Левая колонка */
+                margin-top: 20px;
+                margin-right: 430px;
+                /* Отступ справа */
             }
             
             .folder-item {
