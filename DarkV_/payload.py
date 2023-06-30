@@ -47,6 +47,12 @@ def generate_html_file(folder_structure):
         
             h1 {margin-left: 20px;}
             
+            body {
+                font: inherit;
+                background-color: #222;
+                color: #aaa;
+            }
+          
             aside {
                 /* Правая колонка */
                 position: fixed;
@@ -76,17 +82,24 @@ def generate_html_file(folder_structure):
                 margin-bottom: 5px;
             }
             
+            .folder-name:hover {
+                text-decoration: underline;
+            }
+
             .file-item {
                 padding: 5px;
                 cursor: pointer;
             }
-        
-            #preview {
-                max-width: 400px;
-                overflow-wrap: break-word;
-                word-wrap: break-word;
-                white-space: pre-wrap;
+
+            .file-item:hover {
+                text-decoration: underline;
             }
+            
+                #preview {
+                max-width: 400px;
+                 overflow-wrap: break-word;
+            }
+            
         </style>
         <script>
             function showPreview(file) {
