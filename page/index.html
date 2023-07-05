@@ -118,7 +118,7 @@
             for (let j = 0; j < MyData.length; j++) {
                 list.insertAdjacentHTML("beforeend", ('<li class="folder-item">\n<span class= "folder-name" >' + MyData[j][0] + '</span >\n<ul class="file-list" style="display: none;" id="folder' + j + '">'));
                 for (i = 1; i < MyData[j].length; i++) {
-                    document.getElementById("folder" + j).insertAdjacentHTML("beforeend", ('<li class="file-item" data-file="ASCII/TROLL.html">' + MyData[j][i] + '</li>'));
+                    document.getElementById("folder" + j).insertAdjacentHTML("beforeend", ('<li class="file-item">' + MyData[j][i] + '</li>'));
                 }
             }
             window.addEventListener("DOMContentLoaded", bindClickEvents);
